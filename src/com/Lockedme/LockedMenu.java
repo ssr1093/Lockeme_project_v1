@@ -7,13 +7,20 @@ import com.Lockedme.Operations.*;
 
 public class LockedMenu {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		try (Scanner entry = new Scanner(System.in)) {
-			while(true)
+			int num;
+			do
 			{
+				System.out.println("\t\t*****************************");
+				System.out.println("\t\tWELCOME TO LOCKEDME.COM");
+				System.out.println("\t\t*****************************");
+				
 				System.out.println(" \n 1 To Retrive Files \n 2 To operations \n "
 						+ "3 to Exit");
-				int num = entry.nextInt();
+//				error occurs if enters an alphabet so wrapper class used
+			
+				num = Integer.parseInt(entry.nextLine());
 				switch ( num)
 				{
 				case 1:
@@ -25,7 +32,7 @@ public class LockedMenu {
 					case 1:
 						RetrieveFile retrievefile = new RetrieveFile();
 						retrievefile.RetrieveFileMethod();
-						break;
+						continue;
 					case 2:
 						SearchFile searchfile = new SearchFile();
 						searchfile.SearchFileMethod();
@@ -70,15 +77,13 @@ public class LockedMenu {
 							+ "Please try again");
 					break;
 				}
-//				return;
+			}
+			while(num>0);
+			
 				
 			}
 				
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-	
-
+		} 
+		
 	}
-}
+
