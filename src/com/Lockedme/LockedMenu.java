@@ -1,4 +1,5 @@
 package com.Lockedme;
+import java.io.IOException;
 import java.util.Scanner;
 
 import com.Lockedme.RetreiveFiles.*;
@@ -69,8 +70,13 @@ public class LockedMenu {
 							+ "Please try again");
 					break;
 				}
+//				return;
 				
 			}
+				
+		} catch (IOException e) {
+			
+			e.printStackTrace();
 		}
 	
 

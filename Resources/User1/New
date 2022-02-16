@@ -1,0 +1,16 @@
+  {
+   Stream<Path> files = Files.list(Paths.get("Resources"));
+         
+        files.forEach(System.out::println);
+         
+        files.close();
+    }
+//	try
+//	{
+//		Files.list(Paths.get("Resources")).filter(Files::isDirectory).forEach(System.out::println);
+//
+//
+//	}
+//	catch (NoSuchElementException e) {
+//		System.out.println("Please Enter Valid User");
+//	}
