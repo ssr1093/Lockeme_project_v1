@@ -8,10 +8,9 @@ import com.Lockedme.Operations.*;
 public class LockedMenu {
 
 	public static void main(String[] args) throws IOException {
-		try (Scanner entry = new Scanner(System.in)) {
-			int num;
-			do
-			{
+		int choice;
+		Scanner entry = new Scanner(System.in);
+		{
 				System.out.println("\t\t*****************************");
 				System.out.println("\t\tWELCOME TO LOCKEDME.COM");
 				System.out.println("\t\t*****************************");
@@ -20,70 +19,66 @@ public class LockedMenu {
 						+ "3 to Exit");
 //				error occurs if enters an alphabet so wrapper class used
 			
-				num = Integer.parseInt(entry.nextLine());
-				switch ( num)
-				{
-				case 1:
-					System.out.println("\n 1 to Display files \n 2 to Search Files \n"
-							+ " 3 to Main Menu");
-					int number = entry.nextInt();
-					switch (number)
-					{
-					case 1:
-						RetrieveFile retrievefile = new RetrieveFile();
-						retrievefile.RetrieveFileMethod();
-						continue;
-					case 2:
-						SearchFile searchfile = new SearchFile();
-						searchfile.SearchFileMethod();
+				 choice = Integer.parseInt(entry.nextLine());
+				while (choice != 3) {
+					if(choice == 1) {
+						LockedMenu lockedmenu = new LockedMenu();
+						lockedmenu.FirstMenu();
 						break;
-					case 3:
-						System.out.println("Back to Main Menu");
+							}
+					if (choice == 2) {
+						LockedMenu lockedmenu = new LockedMenu();
+						lockedmenu.SecondMenu();
 						break;
-						
-					default :
-						System.out.println("Enter Valid Input");
-					}
-					break;
-				case 2:
-					System.out.println("\n 1 to Create file \n 2 to Delete File "
-							+ "\n 3 to Main menu");
-					int choice = entry.nextInt();
-					switch (choice)
-					{
-					case 1:
-						CreateFile createfile = new CreateFile();
-						createfile.CreateFileMethod();
-						break;
-						
-					case 2:
-						System.out.println("22");
-						break;
-					case 3:
-						System.out.println("23");
-						break;
-					default :
-						System.out.println("Invalid Input");
-						break;
-					}
-				break;
-					
-				case 3:
-					System.out.println("Exiting the application");
-					System.exit(0);
-					break;
-				default:
-					System.out.println("Invalid Enty \n"
-							+ "Please try again");
-					break;
+						}
 				}
-			}
-			while(num>0);
-			
+				}
 				
-			}
+			entry.close();
 				
 		} 
 		
+	
+	
+	
+	
+private void FirstMenu() throws IOException {
+	Scanner entry2 = new Scanner(System.in);
+	System.out.println("\n 1 to Display files \n 2 to Search Files \n"
+			+ " 3 to Main Menu");
+	int ch2 = entry2.nextInt();
+	while (ch2 != 3) {
+		if (ch2 == 1) {
+			RetrieveFile retrievefile = new RetrieveFile();
+			retrievefile.RetrieveFileMethod();
+		}
+		if (ch2 == 2) {
+			SearchFile searchfile = new SearchFile();
+			searchfile.SearchFileMethod();
+		}
+		entry2.close();
 	}
 
+}
+
+
+
+
+private void SecondMenu() {
+	Scanner entry3 = new Scanner(System.in);
+	System.out.println("\n 1 to Create file \n 2 to Delete File "
+			+ "\n 3 to Main menu");
+	int ch3 = entry3.nextInt();
+	while (ch3 != 3) {
+		if (ch3 == 1) {
+			CreateFile createfile = new CreateFile();
+			createfile.CreateFileMethod();
+			}
+		if (ch3 == 2) {
+			DeleteFile deletefile = new DeleteFile();
+			deletefile.DeleteFileMethod();
+		}
+	}
+	entry3.close();
+}
+}

@@ -16,7 +16,7 @@ public class RetrieveFile {
 	{
 	Scanner user = new Scanner(System.in);
 	{
-        Stream<Path> files = Files.list(Paths.get(filespath()));
+        Stream<Path> files = Files.list(Paths.get(filespath));
          
         files.forEach(System.out::println);
          
@@ -26,8 +26,5 @@ public class RetrieveFile {
 	user.close();
 }
 
-	private URI filespath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
