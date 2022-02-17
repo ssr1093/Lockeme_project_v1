@@ -52,7 +52,7 @@ public class LockedMenu {
 	
 	
 	
-private void FirstMenu() throws IOException {
+private void FirstMenu()  {
 	Scanner entry2 = new Scanner(System.in);
 	int ch2;
 	System.out.println("\n 1 to Display files \n 2 to Search Files \n"
