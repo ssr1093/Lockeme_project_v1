@@ -1,0 +1,10 @@
+	Scanner user = new Scanner(System.in);
+	{
+        Stream<Path> files = Files.list(Paths.get(filespath));
+         
+        files.forEach(System.out::println);
+         
+        files.close();
+    }
+
+	user.close();
