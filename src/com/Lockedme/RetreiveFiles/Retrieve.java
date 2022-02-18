@@ -2,18 +2,40 @@ package com.Lockedme.RetreiveFiles;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class RetrieveFile {
+public class Retrieve {
 	
 
-	public void RetrieveFileMethod()	{
+	public static void RetrieveMethod()  	{
+		try
+		{
+		Scanner ob = new Scanner(System.in);
+		int choice = ob.nextInt();
+		while(choice != 3)
+		{
+			if (choice == 1)
+			{		
+				Retrieve listusernames = new Retrieve();
+				listusernames.listUsermethod();
+				} 
+			else if (choice == 2) {
+				Retrieve retrievefile = new Retrieve();
+				retrievefile.ListFilesmethod();
+				}
+		}
+		ob.close();
+		}
+		catch (NoSuchElementException e) {
+			e.printStackTrace();
 		
-		RetrieveFile retrievefile = new RetrieveFile();
-		retrievefile.ListFilesmethod();
-}
+			}
+	}
+		
+	
 
-	private void listUsermethod() {
+	private static void listUsermethod() throws NoSuchElementException {
 		Scanner fname = new Scanner(System.in);
 		System.out.print("Enter User Name (Starts with eg: for Ramaa, just enter Ram):");
 		String f = fname.nextLine();
@@ -35,10 +57,11 @@ public class RetrieveFile {
 	         fname.close();
 	      } 
 	}
-	private void ListFilesmethod() {
+	private static void ListFilesmethod() {
 		Scanner fname2 = new Scanner(System.in);
-		String uNmae = fname2.nextLine();
 		System.out.println("Enter the above listed UserName");
+		String uNmae = fname2.nextLine();
+		
 		File directoryPath = new File(uNmae);
 	      //List of all files and directories
 	      String contents[] = directoryPath.list();
